@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users can read/write their own user document
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Conversations: only owner can write/read
+    match /conversations/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      // messages subcollection
+      match /messages/{messageId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // personalities: public read, admin-only writes (example: validate via custom claims)
+    match /personalities/{doc} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+
+    // relationship_state: only owner can read/write
+    match /relationship_state/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // training logs: allow only admin to read
+    match /training_logs/{doc} {
+      allow create: if request.auth != null && request.auth.token.testing == true;
+      allow read, delete: if request.auth != null && request.auth.token.admin == true;
+    }
+  }
+}

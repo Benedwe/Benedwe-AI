@@ -1,0 +1,9 @@
+fastapi==0.95.2
+uvicorn[standard]==0.21.1
+firebase-admin==6.1.1
+pydantic==1.10.12
+python-dotenv==1.0.0
+httpx==0.24.1
+openai==1.28.0
+google-cloud-firestore==2.11.0
+typing_extensions==4.7.1
