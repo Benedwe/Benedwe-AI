@@ -1,8 +1,8 @@
 import os
-import openai
+from openai import OpenAI
 from app.core import config
 
-openai.api_key = config.settings.openai_api_key
+client = OpenAI(api_key=config.settings.openai_api_key)
 
 
 def generate_completion(messages: list[dict], max_tokens: int = 512, temperature: float = 0.8) -> str:
@@ -11,7 +11,7 @@ def generate_completion(messages: list[dict], max_tokens: int = 512, temperature
     messages: list of {role: 'system'|'user'|'assistant', 'content': str}
     """
     try:
-        res = openai.ChatCompletion.create(
+        res = client.chat.completions.create(
             model=config.settings.openai_model,
             messages=messages,
             max_tokens=max_tokens,
