@@ -1,34 +1,34 @@
-# Benedwe AI — Frontend (React Native / Expo)
+# Benedwe AI Frontend
 
-This is a minimal React Native (Expo) client for Benedwe AI. It demonstrates:
-- Firebase Authentication (anonymous or email)
-- Sending ID token to backend `/api/chat`
-- Simple chat UI
+## Authentication Setup
 
-Setup
-1. Install Expo CLI (if you don't have it):
+This application uses Firebase Authentication with two sign-in methods:
+1. Email and Password
+2. Google Sign-In
 
-```bash
-npm install --global expo-cli
+### Environment Variables
+
+Create a `.env` file in this directory with the following variables:
+
+```env
+# Firebase Configuration
+FIREBASE_API_KEY=your_api_key
+FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+FIREBASE_APP_ID=your_app_id
+
+# Google OAuth Client IDs
+EXPO_PUBLIC_GOOGLE_CLIENT_ID=your_google_client_id
+EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID=your_ios_client_id
+EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID=your_android_client_id
 ```
 
-2. Copy `.env.example` to `.env` and fill in your Firebase config and `API_BASE_URL`.
-3. Install dependencies:
+### Firebase Authentication Methods
 
-```bash
-cd frontend
-npm install
-```
+The application supports:
+- Email/Password sign-up and sign-in
+- Google Sign-In
 
-4. Start the app:
-
-```bash
-npm start
-# or
-expo start
-```
-
-Important notes
-- Update `firebaseConfig.js` with your Firebase project values or set them via your preferred environment injection for Expo.
-- The client requests an ID token from Firebase and attaches it as `Authorization: Bearer <token>` to backend requests.
-- Do NOT include `OPENAI_API_KEY` or any secret in this repo's client-side code.
+All authentication is handled through the Firebase JavaScript SDK v9.

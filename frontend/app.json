@@ -22,7 +22,7 @@
           {
             "CFBundleURLName": "GoogleSignIn",
             "CFBundleURLSchemes": [
-              "com.googleusercontent.apps.your-ios-client-id"
+              "com.googleusercontent.apps.192881900256-8cqgqr5t55ttnsmk7ul1dt17fke8usq5"
             ]
           }
         ]
@@ -33,21 +33,19 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.benedwe.ai",
-      "intentFilters": [
-        {
-          "action": "VIEW",
-          "data": [
-            {
-              "scheme": "https"
-            }
-          ],
-          "category": [
-            "BROWSABLE",
-            "DEFAULT"
-          ]
+      "package": "com.benedwe.ai"
+    },
+    "web": {
+      "config": {
+        "firebase": {
+          "apiKey": "AIzaSyBSU9t2nfuV2Ont80ojY6pCnRo4lim7rNw",
+          "authDomain": "benedwe-ai.firebaseapp.com",
+          "projectId": "benedwe-ai",
+          "storageBucket": "benedwe-ai.firebasestorage.app",
+          "messagingSenderId": "192881900256",
+          "appId": "1:192881900256:android:5c41f4d1220c8981c9ae85"
         }
-      ]
+      }
     }
   }
 }
