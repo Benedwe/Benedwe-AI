@@ -1,12 +1,12 @@
 # Benedwe-AI
 
 This is a minimal React Native client for Benedwe AI. It demonstrates:
-- Firebase Authentication (anonymous or email)
+- Firebase Authentication 
 - Sending ID token to backend `/api/chat`
 - Simple chat UI
 
-Setup
-1. Install Expo CLI (if you don't have it):
+## Setup
+1. Install Expo CLI 
 
 ```bash
 npm install --global expo-cli
@@ -27,8 +27,3 @@ npm start
 # or
 expo start
 ```
-
-Important notes
-- Update `firebaseConfig.js` with your Firebase project values or set them via your preferred environment injection for Expo.
-- The client requests an ID token from Firebase and attaches it as `Authorization: Bearer <token>` to backend requests.
-- Do NOT include `OPENAI_API_KEY` or any secret in this repo's client-side code.

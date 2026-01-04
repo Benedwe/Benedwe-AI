@@ -6,16 +6,21 @@
   "scripts": {
     "start": "npx expo start",
     "android": "npx expo run:android",
-    "ios": "npx expo run:ios"
+    "ios": "npx expo run:ios",
+    "postinstall": "npx jetify"
   },
   "dependencies": {
-    "expo": "~49.0.0",
+    "@expo/metro-config": "^54.0.12",
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "expo": "^54.0.30",
     "expo-auth-session": "~5.0.2",
     "expo-random": "~13.2.0",
     "expo-web-browser": "~12.3.2",
+    "firebase": "^12.7.0",
+    "jetifier": "^2.0.0",
     "react": "18.2.0",
-    "react-native": "0.72.10",
-    "axios": "^1.4.0",
-    "firebase": "^9.22.1"
+    "react-native": "^0.72.17",
+    "react-native-dotenv": "^3.4.8"
   }
 }

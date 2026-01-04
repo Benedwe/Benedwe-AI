@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Button, TextInput, Alert, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
 
-export default function LoginScreen({ auth, onSignedIn }) {
+export default function LoginScreen({ auth, onSignedIn, onNavigateToSignup }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -101,6 +101,13 @@ export default function LoginScreen({ auth, onSignedIn }) {
             onPress={doEmailSignIn} 
             disabled={loading}
           />
+          
+          <View style={styles.footer}>
+            <Text>Don't have an account? </Text>
+            <TouchableOpacity onPress={onNavigateToSignup}>
+              <Text style={styles.link}>Sign Up</Text>
+            </TouchableOpacity>
+          </View>
         </>
       )}
     </View>
@@ -145,5 +152,14 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 15,
     borderRadius: 5,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
+  link: {
+    color: '#4285F4',
+    fontWeight: 'bold',
   },
 });
